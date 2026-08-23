@@ -2488,7 +2488,7 @@ function initMoments() {
     if (!momentsFeed) return; // 不在动态页面
 
     const config = window.HOMEPAGE_CONFIG?.moments;
-    if (!config || !config.enabled || !config.memosUrl) {
+    if (!config || !config.enabled) {
         console.warn('Moments: 未启用或缺少配置');
         return;
     }
@@ -2504,3 +2504,4 @@ function initMoments() {
 
 // ========== 页面加载完成后初始化 ==========
 document.addEventListener("DOMContentLoaded", initPage);
+
