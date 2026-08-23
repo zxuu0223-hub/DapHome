@@ -271,7 +271,7 @@ window.HOMEPAGE_CONFIG = {
   // ========== 个人动态配置 ==========
   moments: {
     enabled: true, // 是否启用动态模块
-    memosUrl: "https://memos.dapweb.us.kg/", // Memos 实例地址
+    memosUrl: "", // 静态 Markdown 模式无需外部服务
     count: 10, // 获取数量
     tags: [], // 标签过滤（可选，留空获取所有公开动态）
     showSkeleton: true, // 显示骨架屏
@@ -516,6 +516,7 @@ function formatIdentity() {
 function formatInterests() {
   return window.HOMEPAGE_CONFIG.interests.join(" / ");
 }
+
 
 
 

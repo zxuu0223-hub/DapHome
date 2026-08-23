@@ -132,7 +132,7 @@ class MomentsFeed {
   }
 
   async init() {
-    if (!this.config?.enabled || !this.config.memosUrl) {
+    if (!this.config?.enabled) {
       console.warn('Moments module disabled or URL not configured');
       return;
     }
@@ -217,7 +217,7 @@ class MomentsFeed {
           params.push('pageToken=' + encodeURIComponent(nextPageToken));
         }
 
-        var url = baseUrl + '/api/v1/memos?' + params.join('&');
+        var url = '/moments.json';
         console.log('[Moments] 获取标签列表第' + pageCount + '页:', url);
 
         var response = await fetch(url, {
@@ -265,34 +265,7 @@ class MomentsFeed {
    * @param {string|null} tagFilter - 用于构建URL的标签（独立于this.activeTag）
    */
   buildApiUrl(pageToken, tagFilter) {
-    var self = this;
-    var baseUrl = this.config.memosUrl.replace(/\/$/, '');
-    // 基础过滤条件：只获取公开可见的动态
-    var filter = "visibility == 'PUBLIC'";
-
-    if (tagFilter) {
-      // 按单个标签筛选：使用 CEL 语法 'tag' in tags
-      filter = filter + " && '" + this.escapeCelString(tagFilter) + "' in tags";
-    } else if (this.config.tags && this.config.tags.length > 0) {
-      // 配置预设标签过滤：使用 OR 连接多个标签条件
-      var tagFilters = this.config.tags.map(function(tag) {
-        return "'" + self.escapeCelString(tag) + "' in tags";
-      });
-      filter = filter + ' && (' + tagFilters.join(' || ') + ')';
-    }
-
-    // 手动构建查询字符串，使用 encodeURIComponent 确保正确编码
-    // 注意：URLSearchParams 会将空格编码为 +，但某些API期望 %20
-    var params = [];
-    params.push('filter=' + encodeURIComponent(filter));
-    params.push('orderBy=' + encodeURIComponent('pinned desc, create_time desc'));
-    params.push('pageSize=' + (this.config.count || 10));
-
-    if (pageToken) {
-      params.push('pageToken=' + encodeURIComponent(pageToken));
-    }
-
-    return baseUrl + '/api/v1/memos?' + params.join('&');
+    return '/moments.json';
   }
 
   /**
@@ -404,6 +377,14 @@ class MomentsFeed {
       }
 
       var data = await response.json();
+      var localMemos = data.memos || [];
+      if (requestInfo.tag) {
+        localMemos = localMemos.filter(function(m) { return Array.isArray(m.tags) && m.tags.indexOf(requestInfo.tag) !== -1; });
+      } else if (this.config.tags && this.config.tags.length > 0) {
+        localMemos = localMemos.filter(function(m) { return Array.isArray(m.tags) && m.tags.some(function(tag) { return self.config.tags.indexOf(tag) !== -1; }); });
+      }
+      data.memos = localMemos;
+      data.nextPageToken = '';
 
       // 再次检查请求是否已被取消（解析JSON期间可能被取消）
       if (requestInfo.cancelled) {

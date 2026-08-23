@@ -3187,6 +3187,7 @@ async function build() {
     await processFile('src/config.js', 'config.js');
     await processFile('src/theme-utils.js', 'theme-utils.js');
     await processFile('src/moments.js', 'moments.js');
+    await processFile('src/moments-data.json', 'moments.json');
 
     // 处理留言板模块（包含评论系统）
     // 先读取评论独立模块
@@ -3288,3 +3289,4 @@ build().catch(function(err) {
     console.error('❌ 构建失败:', err);
     process.exit(1);
 });
+
