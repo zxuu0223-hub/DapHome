@@ -9,7 +9,7 @@ window.HOMEPAGE_CONFIG = {
   site: {
     name: "DapWeb", // 站点名称（用于标题后缀）
     tagline: "莫纳什数据科学硕士 · 待业中（来点活吧宝贝）", // 站点标语（用于首页标题）
-    url: "https://dapweb.us.kg", // 站点完整 URL（用于 OG 图片等绝对路径）- 空值使用相对路径
+    url: "", // 留空以使用相对路径，兼容 Vercel 与自定义域名（用于 OG 图片等绝对路径）- 空值使用相对路径
     ogImage: "/images/avatar.webp", // 默认 OG 图片（所有页面共用）
   },
 
@@ -32,7 +32,7 @@ window.HOMEPAGE_CONFIG = {
     og: {
       title: "DapWeb - 个人主页",
       description: "莫纳什数据科学硕士 · 正在寻找工作机会",
-      image: "https://dapweb.us.kg/images/avatar.webp",
+      image: "/images/avatar.webp",
     },
   },
 
@@ -516,6 +516,7 @@ function formatIdentity() {
 function formatInterests() {
   return window.HOMEPAGE_CONFIG.interests.join(" / ");
 }
+
 
 
 
