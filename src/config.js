@@ -7,9 +7,9 @@ window.HOMEPAGE_CONFIG = {
   // ========== 站点基础配置 ==========
   // 这些是网站的核心信息，会被所有页面引用
   site: {
-    name: "YourName", // 站点名称（用于标题后缀）
-    tagline: "技术博主 / 开源爱好者 / AI 探索者", // 站点标语（用于首页标题）
-    url: "", // 站点完整 URL（用于 OG 图片等绝对路径）- 空值使用相对路径
+    name: "DapWeb", // 站点名称（用于标题后缀）
+    tagline: "莫纳什数据科学硕士 · 待业中（来点活吧宝贝）", // 站点标语（用于首页标题）
+    url: "https://dapweb.us.kg", // 站点完整 URL（用于 OG 图片等绝对路径）- 空值使用相对路径
     ogImage: "/images/avatar.webp", // 默认 OG 图片（所有页面共用）
   },
 
@@ -17,8 +17,8 @@ window.HOMEPAGE_CONFIG = {
   // 首页使用完整的自定义 SEO 内容
   // 内页会自动生成标准格式的标题和描述
   seo: {
-    title: "YourName - 技术博主 / 开源爱好者 / AI 探索者",
-    description: "Hi，欢迎访问我的个人主页。这里是技术分享与生活记录的空间。",
+    title: "DapWeb - 莫纳什数据科学硕士",
+    description: "莫纳什大学数据科学硕士的个人主页：代码项目、技术简历与生活动态。",
     keywords: [
       "YourName",
       "技术博客",
@@ -30,9 +30,9 @@ window.HOMEPAGE_CONFIG = {
       "自动化部署",
     ],
     og: {
-      title: "YourName - 个人主页",
-      description: "开源爱好者 / AI探索者 - 与我一起探索技术边界",
-      image: "https://example.com/images/avatar.webp",
+      title: "DapWeb - 个人主页",
+      description: "莫纳什数据科学硕士 · 正在寻找工作机会",
+      image: "https://dapweb.us.kg/images/avatar.webp",
     },
   },
 
@@ -118,10 +118,10 @@ window.HOMEPAGE_CONFIG = {
 
   // ========== 个人信息 ==========
   profile: {
-    name: "YourName",
+    name: "DapWeb",
     tagline: {
       prefix: "🐾",
-      highlight: "欢迎来到我的主页！",
+      highlight: "莫纳什数据科学硕士，待业中（来点活吧宝贝）",
     },
     avatar: "images/avatar.webp",
   },
@@ -132,10 +132,10 @@ window.HOMEPAGE_CONFIG = {
   },
 
   // ========== 身份标签 ==========
-  identity: ["Hi, I'm YourName.", "开源爱好者", "AI探索者", "自动化实践者"],
+  identity: ["Hi, I'm DapWeb.", "莫纳什大学数据科学硕士", "正在寻找工作机会", "中国 · 台州"],
 
   // ========== 兴趣领域 ==========
-  interests: ["Docker & 容器技术", "NAS & 私有云", "AI工具", "自动化部署"],
+  interests: ["数据科学", "机器学习", "Python", "开源项目"],
 
   // ========== 装备列表 ==========
   // 填写你的装备，会在终端显示 `cat gear.txt` 命令
@@ -246,14 +246,14 @@ window.HOMEPAGE_CONFIG = {
 
   // ========== GitHub 项目展示配置 ==========
   projects: {
-    enabled: false, // 设置为 false 可禁用此模块
+    enabled: true, // 设置为 false 可禁用此模块
     title: {
       text: "我的项目",
       icon: "fa-solid fa-folder-open",
     },
     // GitHub 用户主页地址，构建时自动获取公开仓库
     // 支持格式：https://github.com/username 或 github.com/username
-    githubUser: "https://github.com/yourusername", // 替换为你的 GitHub 主页
+    githubUser: "https://github.com/zxuu0223-hub", // 替换为你的 GitHub 主页
     // 显示数量限制（按 star 数排序后取前 N 个）
     count: 5,
     // 排除的仓库名（可选，支持正则）
@@ -270,8 +270,8 @@ window.HOMEPAGE_CONFIG = {
 
   // ========== 个人动态配置 ==========
   moments: {
-    enabled: false, // 是否启用动态模块
-    memosUrl: "https://your-memos-instance.com/", // Memos 实例地址
+    enabled: true, // 是否启用动态模块
+    memosUrl: "https://memos.dapweb.us.kg/", // Memos 实例地址
     count: 10, // 获取数量
     tags: [], // 标签过滤（可选，留空获取所有公开动态）
     showSkeleton: true, // 显示骨架屏
@@ -350,7 +350,7 @@ window.HOMEPAGE_CONFIG = {
     {
       name: "GitHub",
       description: "开源项目 & 代码",
-      url: "https://github.com/yourid",
+      url: "https://github.com/zxuu0223-hub",
       icon: "fa-brands fa-github",
       brand: "github",
       external: true,
@@ -410,7 +410,7 @@ window.HOMEPAGE_CONFIG = {
     {
       name: "Email",
       description: "联系 & 合作",
-      url: "mailto:example@email.com",
+      url: "mailto:zxuu0223@student.monash.edu",
       icon: "fa-solid fa-envelope",
       brand: "email",
       external: false,
@@ -465,9 +465,9 @@ window.HOMEPAGE_CONFIG = {
   footer: {
     // 版权信息配置
     copyright: {
-      year: "2018-2026", // 版权年份
-      name: "Your Name", // 版权名称
-      url: "https://yourblog.com/", // 链接地址
+      year: "2026", // 版权年份
+      name: "DapWeb", // 版权名称
+      url: "https://dapweb.us.kg/", // 链接地址
     },
     // ICP 备案号配置（中国大陆网站需要）
     icp: {
@@ -516,3 +516,7 @@ function formatIdentity() {
 function formatInterests() {
   return window.HOMEPAGE_CONFIG.interests.join(" / ");
 }
+
+
+
+
