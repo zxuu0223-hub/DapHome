@@ -6900,3 +6900,8 @@ a:focus-visible,
 .home-moment-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .home-moment-tag{color:var(--accent);font-size:12px;background:var(--accent-dim);padding:3px 8px;border-radius:999px}
 
+.profile-emails{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin:-24px 0 32px;font-size:13px}
+.profile-emails a{color:var(--text-secondary);text-decoration:none;transition:color .2s}
+.profile-emails a:hover{color:var(--accent)}
+.profile-emails i{color:var(--accent);margin-right:5px}
+@media(max-width:640px){.profile-emails{flex-direction:column;align-items:center;gap:7px}}

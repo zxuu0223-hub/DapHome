@@ -385,7 +385,7 @@ window.HOMEPAGE_CONFIG = {
       brand: "discord",
       external: true,
       color: "#5865F2",
-      enabled: true,
+      enabled: false,
     },
     {
       name: "Bilibili",
@@ -416,7 +416,7 @@ window.HOMEPAGE_CONFIG = {
       external: false,
       color: "#ea4335",
       antiCrawler: true, // 反爬虫保护，对邮箱地址编码防止被抓取
-      enabled: true,
+      enabled: false,
     },
   ],
 
@@ -516,6 +516,7 @@ function formatIdentity() {
 function formatInterests() {
   return window.HOMEPAGE_CONFIG.interests.join(" / ");
 }
+
 
 
 
