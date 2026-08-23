@@ -335,12 +335,12 @@ window.HOMEPAGE_CONFIG = {
       brand: "blog",
       external: true,
       color: "#00ff9f",
-      enabled: true,
+      enabled: false,
     },
     {
       name: "Photos",
       description: "摄影作品",
-      url: "#",
+      url: "https://github.com/zxuu0223-hub/DapHome/tree/main/src/photos",
       icon: "fa-solid fa-images",
       brand: "photos",
       external: true,
@@ -365,7 +365,7 @@ window.HOMEPAGE_CONFIG = {
       brand: "x",
       external: true,
       color: "#C0C0C0",
-      enabled: true,
+      enabled: false,
     },
     {
       name: "Telegram",
@@ -375,7 +375,7 @@ window.HOMEPAGE_CONFIG = {
       brand: "telegram",
       external: true,
       color: "#229ED9",
-      enabled: true,
+      enabled: false,
     },
     {
       name: "Discord",
@@ -395,7 +395,7 @@ window.HOMEPAGE_CONFIG = {
       brand: "bilibili",
       external: true,
       color: "#00A1D6",
-      enabled: true,
+      enabled: false,
     },
     {
       name: "Weibo",
@@ -405,7 +405,7 @@ window.HOMEPAGE_CONFIG = {
       brand: "weibo",
       external: true,
       color: "#E6162D",
-      enabled: true,
+      enabled: false,
     },
     {
       name: "Email",
@@ -516,6 +516,7 @@ function formatIdentity() {
 function formatInterests() {
   return window.HOMEPAGE_CONFIG.interests.join(" / ");
 }
+
 
 
 

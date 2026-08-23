@@ -920,6 +920,52 @@ function generateLinkHTML(link) {
                     </a>`;
 }
 
+
+// 生成首页最新动态卡片（数据来自 src/moments/*.md）
+function generateLatestMomentHTML() {
+    const dataPath = path.join(rootDir, 'src', 'moments-data.json');
+    if (!fs.existsSync(dataPath)) return '';
+
+    try {
+        const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        const memos = Array.isArray(data.memos) ? data.memos.slice() : [];
+        if (memos.length === 0) return '';
+
+        memos.sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
+        const latest = memos[0];
+        const raw = String(latest.content || '');
+        const preview = raw
+            .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+            .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+            .replace(/^[#>*+-]+\s*/gm, '')
+            .replace(/[`*_~]/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+        const shortPreview = preview.length > 260 ? preview.slice(0, 260) + '…' : preview;
+        const date = new Date(latest.createTime).toLocaleDateString('zh-CN', {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
+        const tags = (latest.tags || []).map(tag =>
+            '<span class="home-moment-tag">#' + escapeHTML(tag) + '</span>'
+        ).join('');
+
+        return '<div class="divider divider-compact lazy-load" data-delay="4"></div>' +
+            '<section class="home-moment-section lazy-load" id="latest-moment" data-delay="4">' +
+            '<div class="home-moment-header">' +
+            '<span class="home-moment-title"><i class="fa-solid fa-bolt"></i> 最新动态</span>' +
+            '<a class="home-moment-history" href="/moments/">查看历史 <i class="fa-solid fa-arrow-right"></i></a>' +
+            '</div>' +
+            '<article class="home-moment-card">' +
+            '<time datetime="' + escapeHTML(latest.createTime) + '">' + escapeHTML(date) + '</time>' +
+            '<p>' + escapeHTML(shortPreview) + '</p>' +
+            '<div class="home-moment-tags">' + tags + '</div>' +
+            '</article></section>';
+    } catch (error) {
+        console.warn('首页最新动态生成失败:', error.message);
+        return '';
+    }
+}
+
 function generateLinksHTML(links) {
     // 过滤掉未启用的链接
     const enabledLinks = links.filter(link => link.enabled !== false);
@@ -2816,6 +2862,7 @@ async function build() {
         .replace(/{{SKELETON_MUSIC}}/g, generateSkeletonMusicHTML(config.music))
 
         // Links
+        .replace(/{{LATEST_MOMENT}}/g, generateLatestMomentHTML())
         .replace(/{{LINKS_SECTION}}/g, generateLinksSectionHTML(config.links, config.linksConfig))
         .replace(/{{SKELETON_LINKS_SECTION}}/g, generateSkeletonLinksSectionHTML(config.links, config.linksConfig))
 
@@ -3289,4 +3336,6 @@ build().catch(function(err) {
     console.error('❌ 构建失败:', err);
     process.exit(1);
 });
+
+
 

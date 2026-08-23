@@ -6886,3 +6886,17 @@ a:focus-visible,
         animation: none;
     }
 }
+
+/* Homepage latest Markdown moment */
+.home-moment-section{width:100%;margin-top:0;text-align:left}
+.home-moment-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+.home-moment-title{display:flex;align-items:center;gap:8px;color:var(--text-primary);font-weight:600}
+.home-moment-title i{color:var(--accent)}
+.home-moment-history{color:var(--accent);font-size:13px;text-decoration:none;white-space:nowrap}
+.home-moment-history:hover{text-decoration:underline}
+.home-moment-card{padding:20px;border:1px solid var(--border);border-radius:12px;background:var(--bg-secondary);box-shadow:0 8px 28px var(--shadow-sm)}
+.home-moment-card time{display:block;color:var(--text-secondary);font-size:12px;margin-bottom:10px}
+.home-moment-card p{color:var(--text-primary);font-size:14px;line-height:1.8;white-space:normal}
+.home-moment-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.home-moment-tag{color:var(--accent);font-size:12px;background:var(--accent-dim);padding:3px 8px;border-radius:999px}
+
