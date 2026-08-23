@@ -102,6 +102,8 @@ function generateNavLinks(options) {
             const momentsIcon = `<i class="${config.pages?.moments?.icon || 'fa-solid fa-bolt'}"></i>`;
             links.push(`<a href="/moments/" class="${linkClass}${momentsActive}">${momentsIcon}<span>动态</span></a>`);
         }
+        const articlesActive = activePage === 'articles' ? ' active' : '';
+        links.push(`<a href="/articles/" class="${linkClass}${articlesActive}"><i class="fa-solid fa-code"></i><span>文章</span></a>`);
         // 留言板（Guestbook 启用时）
         if (hasGuestbook) {
             const guestbookActive = activePage === 'guestbook' ? ' active' : '';
@@ -162,6 +164,8 @@ function generateNavLinksMobileDropdown(options) {
             const momentsIcon = config.pages?.moments?.icon || 'fa-solid fa-bolt';
             links.push(`<a href="/moments/" class="nav-mobile-link${momentsActive}"><i class="${momentsIcon}"></i><span>动态</span></a>`);
         }
+        const articlesMobileActive = activePage === 'articles' ? ' is-active' : '';
+        links.push(`<a href="/articles/" class="nav-mobile-link${articlesMobileActive}"><i class="fa-solid fa-code"></i><span>文章</span></a>`);
         // 留言板 - 从 pages 配置读取图标
         if (hasGuestbook) {
             const guestbookActive = activePage === 'guestbook' ? ' is-active' : '';
