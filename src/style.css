@@ -6905,3 +6905,54 @@ a:focus-visible,
 .profile-emails a:hover{color:var(--accent)}
 .profile-emails i{color:var(--accent);margin-right:5px}
 @media(max-width:640px){.profile-emails{flex-direction:column;align-items:center;gap:7px}}
+
+/* Profile email pills: separated from tagline and high contrast */
+.tagline{margin-bottom:14px}
+.profile-emails{margin:0 0 34px;gap:10px 12px}
+.profile-emails a{color:var(--accent);background:var(--accent-dim);border:1px solid var(--card-border-muted);border-radius:999px;padding:7px 11px;font-weight:600;box-shadow:0 0 16px var(--glow-subtle)}
+.profile-emails a:hover{color:var(--bg-primary);background:var(--accent);border-color:var(--accent)}
+
+/* Homepage article list */
+.home-articles-section{width:100%;text-align:left}
+.home-articles-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+.home-articles-title{display:flex;align-items:center;gap:8px;color:var(--text-primary);font-weight:600}
+.home-articles-title i,.home-articles-all{color:var(--accent)}
+.home-articles-all{font-size:13px;text-decoration:none;white-space:nowrap}
+.home-articles-all:hover{text-decoration:underline}
+.home-article-list{border:1px solid var(--border);border-radius:12px;background:var(--bg-secondary);overflow:hidden}
+.home-article-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border);transition:background .2s,color .2s}
+.home-article-item:last-child{border-bottom:0}
+.home-article-item:hover{color:var(--accent);background:var(--hover-bg)}
+.home-article-item time{color:var(--text-secondary);font-size:12px;white-space:nowrap}
+
+/* Articles index and detail */
+.article-nav{height:56px;display:flex;align-items:center;justify-content:space-between;max-width:820px;margin:auto;padding:0 20px;border-bottom:1px solid var(--border)}
+.article-nav a{color:var(--accent);text-decoration:none;margin-left:16px}
+.articles-page{max-width:820px;margin:0 auto;padding:52px 20px 90px}
+.articles-hero{text-align:center;margin-bottom:38px}
+.articles-hero p{color:var(--accent);font-family:monospace;margin-bottom:12px}
+.articles-hero h1{font-size:38px;color:var(--text-primary);margin-bottom:8px}
+.articles-hero span{color:var(--text-secondary)}
+.article-list{display:flex;flex-direction:column;gap:12px}
+.article-list-item{display:flex;justify-content:space-between;gap:22px;padding:20px;color:var(--text-primary);text-decoration:none;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;transition:transform .2s,border-color .2s}
+.article-list-item:hover{transform:translateY(-2px);border-color:var(--accent)}
+.article-list-item h2{font-size:18px;margin-bottom:8px}
+.article-list-item p{color:var(--text-secondary);font-size:13px;line-height:1.6}
+.article-list-item time{color:var(--text-secondary);font-size:12px;white-space:nowrap}
+.article-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.article-tags span{font-size:12px;color:var(--accent);background:var(--accent-dim);padding:3px 8px;border-radius:999px}
+.article-detail{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;padding:clamp(22px,5vw,48px)}
+.article-back{color:var(--accent);text-decoration:none;font-size:13px}
+.article-detail>header{margin:26px 0 36px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.article-detail>header h1{font-size:clamp(28px,5vw,42px);line-height:1.25;margin-bottom:12px}
+.article-detail>header time{color:var(--text-secondary);font-size:13px}
+.article-body{line-height:1.85;color:var(--text-primary)}
+.article-body h1,.article-body h2,.article-body h3{margin:30px 0 12px;color:var(--accent)}
+.article-body p{margin:12px 0}
+.article-body ul{padding-left:24px;margin:12px 0}
+.article-body pre{overflow:auto;padding:18px;background:var(--bg-primary);border:1px solid var(--border);border-radius:10px;margin:18px 0}
+.article-body code{font-family:monospace;color:var(--accent)}
+.article-body p code{background:var(--accent-dim);padding:2px 5px;border-radius:4px}
+.article-body a{color:var(--accent)}
+@media(max-width:640px){.home-article-item,.article-list-item{align-items:flex-start;flex-direction:column;gap:7px}.profile-emails a{font-size:12px}}
+

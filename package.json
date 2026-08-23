@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "description": "MoeWah Personal Homepage",
   "scripts": {
-    "build": "node scripts/build-moments.js && node scripts/build.js",
+    "build": "node scripts/build-moments.js && node scripts/build-articles-data.js && node scripts/build.js && node scripts/build-articles-pages.js",
     "dev": "echo '开发模式：直接打开 dist/index.html'",
     "serve": "npx http-server dist -p 8080"
   },
@@ -20,4 +20,5 @@
     "terser": "^5.46.0"
   }
 }
+
 

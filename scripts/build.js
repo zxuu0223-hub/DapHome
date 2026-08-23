@@ -921,6 +921,33 @@ function generateLinkHTML(link) {
 }
 
 
+
+// 生成首页最新五篇文章标题
+function generateLatestArticlesHTML() {
+    const dataPath = path.join(rootDir, 'src', 'articles-data.json');
+    if (!fs.existsSync(dataPath)) return '';
+    try {
+        const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        const articles = Array.isArray(data.articles) ? data.articles.slice(0, 5) : [];
+        if (articles.length === 0) return '';
+        const items = articles.map(article =>
+            '<a class="home-article-item" href="/articles/' + encodeURIComponent(article.slug) + '/">' +
+            '<span>' + escapeHTML(article.title) + '</span>' +
+            '<time>' + new Date(article.date).toLocaleDateString('zh-CN') + '</time>' +
+            '</a>'
+        ).join('');
+        return '<div class="divider divider-compact lazy-load" data-delay="4"></div>' +
+            '<section class="home-articles-section lazy-load" id="latest-articles" data-delay="4">' +
+            '<div class="home-articles-header">' +
+            '<span class="home-articles-title"><i class="fa-solid fa-code"></i> 最新文章</span>' +
+            '<a class="home-articles-all" href="/articles/">查看全部 <i class="fa-solid fa-arrow-right"></i></a>' +
+            '</div><div class="home-article-list">' + items + '</div></section>';
+    } catch (error) {
+        console.warn('首页文章列表生成失败:', error.message);
+        return '';
+    }
+}
+
 // 生成首页最新动态卡片（数据来自 src/moments/*.md）
 function generateLatestMomentHTML() {
     const dataPath = path.join(rootDir, 'src', 'moments-data.json');
@@ -2862,6 +2889,7 @@ async function build() {
         .replace(/{{SKELETON_MUSIC}}/g, generateSkeletonMusicHTML(config.music))
 
         // Links
+        .replace(/{{LATEST_ARTICLES}}/g, generateLatestArticlesHTML())
         .replace(/{{LATEST_MOMENT}}/g, generateLatestMomentHTML())
         .replace(/{{LINKS_SECTION}}/g, generateLinksSectionHTML(config.links, config.linksConfig))
         .replace(/{{SKELETON_LINKS_SECTION}}/g, generateSkeletonLinksSectionHTML(config.links, config.linksConfig))
@@ -3336,6 +3364,7 @@ build().catch(function(err) {
     console.error('❌ 构建失败:', err);
     process.exit(1);
 });
+
 
 
 
