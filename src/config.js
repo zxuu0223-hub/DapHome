@@ -31,7 +31,7 @@ window.HOMEPAGE_CONFIG = {
     ],
     og: {
       title: "DapWeb - 个人主页",
-      description: "莫纳什数据科学硕士 · 正在寻找工作机会",
+      description: "莫纳什数据科学硕士",
       image: "/images/avatar.webp",
     },
   },
@@ -121,7 +121,7 @@ window.HOMEPAGE_CONFIG = {
     name: "DapWeb",
     tagline: {
       prefix: "🐾",
-      highlight: "莫纳什数据科学硕士，待业中（整点活吧宝贝！）",
+      highlight: "莫纳什数据科学硕士（整点活吧宝贝！）",
     },
     avatar: "images/avatar.webp",
   },
@@ -132,7 +132,7 @@ window.HOMEPAGE_CONFIG = {
   },
 
   // ========== 身份标签 ==========
-  identity: ["Hi, I'm DapWeb.", "莫纳什大学数据科学硕士", "正在寻找工作机会", "中国 · 台州"],
+  identity: ["Hi, I'm DapWeb.", "莫纳什大学数据科学硕士", "中国 · 台州"],
 
   // ========== 兴趣领域 ==========
   interests: ["数据科学", "机器学习", "Python", "开源项目"],
